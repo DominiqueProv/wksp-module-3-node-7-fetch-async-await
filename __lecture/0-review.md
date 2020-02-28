@@ -8,7 +8,7 @@ const pauseFunction = () => {
         console.log('entering the promise(d) land');
         resolve('resolve');
         console.log('...in limbo...');
-        reject('reject');
+        reject('reject'); //when call the function, it stop at the resolve
         console.log('shuffling off...');
     });
 }

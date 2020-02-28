@@ -14,7 +14,7 @@
 const newPauseFunction = (sec) => {
     return new Promise(function(resolve) {
         console.log(`${sec}s pause`);
-        setTimeout(() => resolve('resolve'), sec * 1000);
+        setTimeout(() => resolve('resolved!'), sec * 1000);
     });
 }
 
@@ -23,6 +23,18 @@ newPauseFunction(1)
     .then(() => newPauseFunction(3))
     .then(() => newPauseFunction(3))
     .then(data => console.log(data));
+
+
+const doIt = async () => {
+    await newPauseFunction(1);
+    await newPauseFunction(2);
+    await newPauseFunction(3);
+    await newPauseFunction(3);
+    console.log('no more "awaits"');
+}
+
+doIt();
+
 ```
 
 _let's convert it to async/await_
@@ -44,6 +56,14 @@ transformText(string)
         return str;
     })
     .catch((err) => console.log(err));
+
+
+    const transformText = async (string) => {
+        const str = allCaps(string)
+
+    }
+
+
 ```
 
 ---

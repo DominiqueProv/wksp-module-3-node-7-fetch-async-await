@@ -3,6 +3,8 @@
 // Write a function testNum that takes a number as an argument and returns
 // a Promise that tests if the value is less than or greater than the value 10.
 
+
+
 const compareToTen = (num) => {
     myPromise = new Promise((resolve, reject) => {
         if(num > 10) {
@@ -15,7 +17,10 @@ const compareToTen = (num) => {
 }
 
 const myFunc = async (num) => {
-    // add code here
+    try {
+        let result = await compareToTen(num);
+        console.log(result);
+    }catch (err) { console.log(err) }
 }
 
 myFunc(15);
@@ -52,7 +57,14 @@ const sortWords = (array) => {
 } 
 
 const textTransform = async (array) => {
-    // add code here
+    try{
+        let result = await makeAllCaps(array);
+        let finalResult = await sortWords(result);
+        console.log(finalResult);
+
+    } catch (err) { console.log(err) }
+    
+
 }
 
 textTransform(['cucumber', 'tomatos', 'avocado']);
